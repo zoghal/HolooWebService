@@ -1,0 +1,17 @@
+{
+    "name": "zoghal/holoo-client",
+    "description": "PHP Client Webservice for Holoo(Torfenagar) accounting and financial software(holoo.co.ir)",
+    "license": "MIT License",
+    "autoload": {
+        "psr-4": {
+            "Zoghal\\HolooClient\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Saleh Souzanchi",
+            "email": "saleh.souzanchi@gmail.com"
+        }
+    ],
+    "require": {}
+}
