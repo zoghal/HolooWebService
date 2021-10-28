@@ -1,7 +1,7 @@
 {
     "name": "zoghal/holoo-client",
     "description": "PHP Client Webservice for Holoo(Torfenagar) accounting and financial software(holoo.co.ir)",
-    "license": "MIT License",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "HolooClient\\": "src/"
