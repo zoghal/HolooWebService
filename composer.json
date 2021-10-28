@@ -4,14 +4,15 @@
     "license": "MIT License",
     "autoload": {
         "psr-4": {
-            "Zoghal\\HolooClient\\": "src/"
+            "HolooClient\\": "src/"
         }
     },
-    "authors": [
-        {
-            "name": "Saleh Souzanchi",
-            "email": "saleh.souzanchi@gmail.com"
-        }
-    ],
-    "require": {}
+    "authors": [{
+        "name": "Saleh Souzanchi",
+        "email": "saleh.souzanchi@gmail.com"
+    }],
+    "require": {
+        "guzzlehttp/guzzle": "7.0"
+
+    }
 }
