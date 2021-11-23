@@ -60,7 +60,7 @@ class Holoo
     ];
 
     public static $debug = true;
-    
+
     private static $WebServicURL;
     private static $dbname;
     private static $username;
@@ -135,7 +135,8 @@ class Holoo
             ]
         );
 
-        $res = json_decode($res->getBody()->getContents(), true);
+        $res = self::fixPersianString($res->getBody()->getContents());
+        $res = json_decode($res, true);
         if (!empty($res)) {
             return $res[array_key_first($res)];
         }
@@ -162,11 +163,22 @@ class Holoo
                 'query' => $params
             ]
         );
-
-        $res = json_decode($res->getBody()->getContents(), true);
+        $res = self::fixPersianString($res->getBody()->getContents());
+        $res = json_decode($res, true);
         if (!empty($res)) {
             return $res[array_key_first($res)];
         }
         return $res;
+    }
+
+    /**
+     * fixPersianString
+     *
+     * @param  mixed $text
+     * @return void
+     */
+    private function fixPersianString($text)
+    {
+        return str_replace(["ي", "ك", "ى", "ة"], ["ی", "ک", "ی", "ه"], $text);
     }
 }
