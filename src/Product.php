@@ -9,6 +9,23 @@ namespace HolooClient;
 class Product extends Holoo
 {
 
+    /**
+     * Get one or more Products|دریافت محصولات
+     *
+     * ### Example
+     *```
+     * $product= Product::GetProduct();
+     * $product= Product::GetProduct(['Code'=>64]);
+     * $product= Product::GetProduct(['MainGroupErpCode'=> 'bBALfg==']);
+     *```
+     * 
+     * @param  mixed $params
+     * @return array
+     */
+    public static function GetProduct($params = []): array
+    {
+        return self::getRequest('Product', $params);
+    }
 
     /**
      * GetMainGroup | لیست گروه‌های اصلی
@@ -57,5 +74,4 @@ class Product extends Holoo
     {
         return self::getRequest('Unit', []);
     }
-    
 }
