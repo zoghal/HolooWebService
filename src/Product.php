@@ -40,4 +40,22 @@ class Product extends Holoo
     {
         return self::getRequest('SideGroup', []);
     }
+
+
+
+    /**
+     * GetUnit | لیست واحدها 
+     * 
+     * ### Example
+     * ```
+     * $product = Product::GetUnit();
+     * ```
+     * 
+     * @return array
+     */
+    public static function GetUnit(): array
+    {
+        return self::getRequest('Unit', []);
+    }
+    
 }
