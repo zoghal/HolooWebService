@@ -28,6 +28,16 @@ class Product extends Holoo
     }
 
     /**
+     * return the total number of products|محاسبه تعداد محصولات 
+     * 
+     * @return int
+     */
+    public static function GetProductCount(): int
+    {
+        return self::getRequest('Product/count', []);
+    }
+
+    /**
      * GetMainGroup | لیست گروه‌های اصلی
      * 
      * ### Example
