@@ -41,4 +41,9 @@ $invioces= Invoice::GetInvoiceList(['Code'=>123]);
 $invioces= Invoice::GetInvoiceList(['type'=>4]);
 print_r($invioces);
 
+
+$product = Product::GetMainGroup();
+$product = Product::GetSideGroup();
+$product = Product::GetUnit();
+print_r($product);
 ```
