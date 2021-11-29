@@ -45,5 +45,10 @@ print_r($invioces);
 $product = Product::GetMainGroup();
 $product = Product::GetSideGroup();
 $product = Product::GetUnit();
+
+$product= Product::GetProduct();
+$product= Product::GetProduct(['Code'=>64]);
+$product = Product::GetProduct(['MainGroupErpCode' => 'bBALfg==']); // bug
+$product= Product::GetProductCount();
 print_r($product);
 ```
