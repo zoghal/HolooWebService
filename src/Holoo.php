@@ -59,7 +59,7 @@ class Holoo
         36  => "مبلغ تسویه فاکتور با جمع فاکتور برابر نمی‌باشد"
     ];
 
-    public static $debug = true;
+    public static $debug = false;
 
     private static $WebServicURL;
     private static $dbname;
@@ -121,7 +121,7 @@ class Holoo
      * @param  mixed $params
      * @return void
      */
-    protected static function postRequest($action, array $params = []): array
+    protected static function postRequest($action, array $params = [])
     {
         $client = new Client(['base_uri' => self::$WebServicURL]);
         $res = $client->post(
@@ -150,7 +150,7 @@ class Holoo
      * @param  mixed $params
      * @return void
      */
-    protected static function getRequest($action, array $params = []): array
+    protected static function getRequest($action, array $params = [])
     {
         $client = new Client(['base_uri' => self::$WebServicURL]);
         $res = $client->get(
@@ -177,7 +177,7 @@ class Holoo
      * @param  mixed $text
      * @return void
      */
-    private function fixPersianString($text)
+    private static function fixPersianString($text)
     {
         return str_replace(["ي", "ك", "ى", "ة"], ["ی", "ک", "ی", "ه"], $text);
     }
