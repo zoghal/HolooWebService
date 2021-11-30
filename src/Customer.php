@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace HolooClient;
 
@@ -36,8 +37,8 @@ class Customer extends Holoo
      * 
      * @return int
      */
-    public static function GetCustomerCount(): int
+    public static function GetCustomerCount():int
     {
-        return self::getRequest('Customer/count', []);
+        return (int)self::getRequest('Customer/count', []);
     }
 }

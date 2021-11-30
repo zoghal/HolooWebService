@@ -119,7 +119,7 @@ class Holoo
      *
      * @param  mixed $action
      * @param  mixed $params
-     * @return void
+     * @return mixed
      */
     protected static function postRequest($action, array $params = [])
     {
@@ -148,7 +148,7 @@ class Holoo
      *
      * @param  mixed $action
      * @param  mixed $params
-     * @return void
+     * @return mixed
      */
     protected static function getRequest($action, array $params = [])
     {
@@ -175,9 +175,9 @@ class Holoo
      * fixPersianString
      *
      * @param  mixed $text
-     * @return void
+     * @return string
      */
-    private static function fixPersianString($text)
+    private static function fixPersianString($text): string
     {
         return str_replace(["ي", "ك", "ى", "ة"], ["ی", "ک", "ی", "ه"], $text);
     }

@@ -28,6 +28,52 @@ class Product extends Holoo
     }
 
     /**
+     * PostProduct
+     *
+     * @param  mixed[] $params.
+     * $params = [
+     *      'id'=>	(int)
+     *      'sidegroupErpcode'=>	(string)    Required.
+     *      'code'=>	(string)
+     *      'name'=>	(string)    Required
+     *      'few'=>	(string)
+     *      'buyprice'=>	(float)
+     *      'sellprice'=>	(float)
+     *      'sellprice2'=>	(float)
+     *      'Sellprice3'=>	(float)
+     *      'Sellprice4'=>	(float)
+     *      'Sellprice5'=>	(float)
+     *      'Sellprice6'=>	(float)
+     *      'Sellprice7'=>	(float)
+     *      'Sellprice8'=>	(float)
+     *      'Sellprice9'=>	(float)
+     *      'Sellprice10'=>	(float)
+     *      'countinkarton'=>	(string)
+     *      'countinbasteh'=>	(string)
+     *      'uniterpcode'=>	(string)
+     * ]
+     * 
+     * @return array
+     */
+    public static function NewProduct($params = []): array
+    {
+        return self::postRequest('Product', $params);
+        //todo: check if product is created
+    }
+
+    /**
+     * EditProduct
+     *
+     * @param  mixed $params
+     * @return array
+     */
+    public static function EditProduct($params = []): array
+    {
+        return self::getRequest('Product', $params);
+        //todo: check if product is created
+    }
+
+    /**
      * return the total number of products|محاسبه تعداد محصولات 
      * 
      * @return int
