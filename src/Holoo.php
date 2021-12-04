@@ -172,6 +172,35 @@ class Holoo
     }
 
     /**
+     * Create and send an HTTP PUT request.
+     * 
+     * @param mixed $action
+     * @param array $params
+     * 
+     * @return mixed
+     */
+    protected static function putRequest($action, array $params = [])
+    {
+        $client = new Client(['base_uri' => self::$WebServicURL]);
+        $res = $client->put(
+            $action,
+            [
+                'debug' => self::$debug,
+                'headers' => [
+                    'Authorization' => static::$token
+                ],
+                'query' => $params
+            ]
+        );
+        $res = self::fixPersianString($res->getBody()->getContents());
+        $res = json_decode($res, true);
+        if (!empty($res)) {
+            return $res[array_key_first($res)];
+        }
+        return $res;
+    }
+
+    /**
      * fixPersianString
      *
      * @param  mixed $text
