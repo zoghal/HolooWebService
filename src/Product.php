@@ -30,6 +30,16 @@ class Product extends Holoo
     /**
      * PostProduct
      *
+     * ### Example
+     * ```
+     * $product = Product::NewProduct([
+     *    'productinfo' => [
+     *        'sidegroupErpcode' => 'bBALNA1jDg0=',
+     *        'name' => 'saleh402'
+     *    ]
+     * ]);
+     * ```
+     * 
      * @param  mixed[] $params.
      * $params = [
      *      'id'=>	(int)
@@ -63,13 +73,22 @@ class Product extends Holoo
     /**
      * EditProduct
      *
+     * ### Example
+     * ```
+     * $product = Product::EditProduct([
+     *    'productinfo' => [
+     *        'erpcode' => 'bBALNA1mcgF7UB4O',
+     *        'name' => 'نامش ادیت شود'
+     *    ]
+     * ]);
+     * ```
+     * 
      * @param  mixed $params
      * @return array
      */
     public static function EditProduct($params = []): array
     {
         return self::putRequestJson('Product', $params);
-        
     }
 
     /**
