@@ -57,8 +57,7 @@ class Product extends Holoo
      */
     public static function NewProduct($params = []): array
     {
-        return self::postRequest('Product', $params);
-        //todo: check if product is created
+        return self::postRequestJson('Product', $params);
     }
 
     /**
@@ -69,8 +68,8 @@ class Product extends Holoo
      */
     public static function EditProduct($params = []): array
     {
-        return self::getRequest('Product', $params);
-        //todo: check if product is created
+        return self::putRequestJson('Product', $params);
+        
     }
 
     /**
