@@ -25,6 +25,7 @@ require 'vendor/autoload.php';
 use HolooClient\Holoo;
 use HolooClient\Customer;
 use HolooClient\Invoice;
+use HolooClient\Product;
 
 Holoo::config('http://server-ip:8080/TncHoloo/api/','DB Name','UserName','PassWord');
 Holoo::login();
@@ -51,22 +52,57 @@ $user = Customer::EditCustomer([
 ]);
 
 print_r($user);
+```
 
+
+```php
 
 $invioces= Invoice::GetInvoiceList();
 $invioces= Invoice::GetInvoiceList(['Code'=>123]);
 $invioces= Invoice::GetInvoiceList(['type'=>4]);
 print_r($invioces);
 
+$invioces = Invoice::NewPreInvoice([
+    'invoiceinfo' => [
+        'id' => '978',
+        'customererpcode' => 'bBAPcw12cg0=',
+        'date' => date('Y-m-d'),
+        'time' => date("H:i:s") ,
+        'comment' => 'یک پیش فاکتور جدید',
+        'detailinfo' => [
+            [
+                'id' => '001',
+                'ProductErpCode' => 'bBALNA1mckd7QB4O',
+                'few' => '1',
+                'price' => '1000',
+                'Comment' => 'توضیحاتی مرتبط با یک محصول خریداری شده'
+            ],
+            [
+                'id' => '002',
+                'ProductErpCode' => 'bBALNA1mckd5dh4O',
+                'few' => '21',
+                'price' => '10000',
+                'Comment' => 'ثبت دامنه | gogoliMagooli.miomio'
+            ]
+        ]
+    ]
+]);
+print_r($invioces);
+```
+
+```php
 
 $product = Product::GetMainGroup();
 $product = Product::GetSideGroup();
 $product = Product::GetUnit();
+print_r($product);
 
 $product= Product::GetProduct();
 $product= Product::GetProduct(['Code'=>64]);
 $product = Product::GetProduct(['MainGroupErpCode' => 'bBALfg==']); // bug
 $product= Product::GetProductCount();
+print_r($product);
+
 
 $product = Product::NewProduct([
     'productinfo' => [
@@ -74,6 +110,7 @@ $product = Product::NewProduct([
         'name' => 'saleh402'
     ]
 ]);
+
 $product = Product::EditProduct([
     'productinfo' => [
         'erpcode' => 'bBALNA1mcgF7UB4O',
