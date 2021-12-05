@@ -87,6 +87,35 @@ $invioces = Invoice::NewPreInvoice([
         ]
     ]
 ]);
+
+
+$invioces = Invoice::NewInvoice([
+    'invoiceinfo' => [
+        'id' => '978',
+        'type' => '1',
+        'customererpcode' => 'bBAPcw12cg0=',
+        'date' => date('Y-m-d'),
+        'time' => date("H:i:s") ,
+        'Nesiyeh' => '21000',
+        'comment' => 'یک فاکتور جدید',
+        'detailinfo' => [
+            [
+                'id' => '1',
+                'ProductErpCode' => 'bBALNA1mckd7QB4O',
+                'few' => '1',
+                'price' => '1000',
+                'Comment' => 'توضیحاتی مرتبط با یک محصول خریداری شده'
+            ],
+            [
+                'id' => '2',
+                'ProductErpCode' => 'bBALNA1mckd5dh4O',
+                'few' => '2',
+                'price' => '10000',
+                'Comment' => 'ثبت دامنه | gogoliMagooli.miomio'
+            ]
+        ]
+    ]
+]);
 print_r($invioces);
 ```
 
