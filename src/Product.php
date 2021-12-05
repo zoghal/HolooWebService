@@ -28,7 +28,7 @@ class Product extends Holoo
     }
 
     /**
-     * PostProduct
+     * ٔNewProduct
      *
      * ### Example
      * ```
