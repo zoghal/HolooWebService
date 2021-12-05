@@ -9,6 +9,9 @@ PHP Client Webservice for Holoo(Torfenagar) accounting and financial software(ho
 ## توضیحات
 این پکیج بر اساس توضیحات راهنمای اتصال به وب‌سرویس هلو در حال تکمیل شدن می‌باشد.
 
+<a href="http://www.coffeete.ir/zoghal">
+       <img src="http://www.coffeete.ir/images/buttons/lemonchiffon.png" style="width:260px;" />
+</a>
 
 ## نصب و راه اندازی
 
