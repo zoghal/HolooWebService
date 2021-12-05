@@ -33,6 +33,23 @@ Holoo::login();
 $user = Customer::GetCustomer();
 $user = Customer::GetCustomer(["Code" => 2756]);
 $user = Customer::GetCustomerCount();
+$user = Customer::NewCustomer([
+    'custifno' => [
+        'name' => 'صالح سوزنچی',
+        'ispurchaser' => true,
+        'isseller' => true,
+        'custtype' => true,
+    ]
+]);
+
+$user = Customer::EditCustomer([
+    'custifno' => [
+        'erpcode=' => 'bBAPNA12dg0=',   
+        'isblacklist' => true,
+        'nationalid' => '38700011122',
+    ]
+]);
+
 print_r($user);
 
 
