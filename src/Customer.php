@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace HolooClient;
@@ -11,7 +12,6 @@ namespace HolooClient;
 class Customer extends Holoo
 {
 
-    
     /**
      * GetCustomer
      * return one or more customers
@@ -37,8 +37,54 @@ class Customer extends Holoo
      * 
      * @return int
      */
-    public static function GetCustomerCount():int
+    public static function GetCustomerCount(): int
     {
         return (int)self::getRequest('Customer/count', []);
+    }
+
+
+    /**
+     * NewCustomer
+     *
+     * ### Example
+     * ```
+     * $user = Customer::NewCustomer([
+     *    'custifno' => [
+     *        'name' => 'صالح سوزنچی',
+     *        'ispurchaser' => true,
+     *        'isseller' => true,
+     *        'custtype' => true,
+     *    ]
+     * ]);
+     * ```
+     * 
+     * @param  mixed $params
+     * @return array
+     */
+    public static function NewCustomer($params = []): array
+    {
+        return self::postRequestJson('Customer', $params);
+    }
+
+    /**
+     * EditCustomer
+     *
+     * ### Example
+     * ```
+     * $user = Customer::EditCustomer([
+     *    'custifno' => [
+     *        'erpcode=' => 'bBAPNA12dg0=',   
+     *        'isblacklist' => true,
+     *        'nationalid' => '38700011122',
+     *    ]
+     * ]);
+     * ```
+     * 
+     * @param  mixed $params
+     * @return array
+     */
+    public static function EditCustomer($params = []): array
+    {
+        return self::putRequestJson('Customer', $params);
     }
 }
