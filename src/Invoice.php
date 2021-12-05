@@ -30,11 +30,17 @@ class Invoice extends Holoo
         return self::getRequest('Invoice/Invoice', $params);
     }
 
-
-    /*     public static function NewInvoice($params = []): array
+    
+    /**
+     * NewInvoice
+     *
+     * @param  mixed $params
+     * @return array
+     */
+    public static function NewInvoice($params = []): array
     {
-       // return self::postRequestJson('Invoice/PreInvoice', $params);
-    } */
+         return self::postRequestJson('Invoice/Invoice', $params);
+    }
 
     /*    public static function GetPreInvoiceInfo($params = []): array
     {
