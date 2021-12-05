@@ -1,6 +1,5 @@
 # HolooWebService
-PHP Client Webservice for Holoo(Torfenagar) accounting and financial software(holoo.co.ir)
-
+PHP Webservice Client for Holoo accounting(Torfenagar) and financial software(holoo.co.ir) 
 
 # وب‌سرویس هلو
 کلاینت PHP وب‌سرویس نرم‌افزار حسابداری و مالی هلو(طرفه‌نگار) (holoo.co.ir)
