@@ -3,6 +3,7 @@
 namespace HolooClient;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Psr7;
 
 
 
@@ -97,7 +98,7 @@ class Holoo
     public static function login()
     {
 
-        $res = self::postRequest('Login', [
+        $res = self::postRequestForm('Login', [
             'dbname' => self::$dbname,
             'username' => self::$username,
             'userpass' => self::$userpass
@@ -113,35 +114,6 @@ class Holoo
         return false;
     }
 
-
-    /**
-     * Create and send an HTTP POST request.
-     *
-     * @param  mixed $action
-     * @param  mixed $params
-     * @return mixed
-     */
-    protected static function postRequest($action, array $params = [])
-    {
-        $client = new Client(['base_uri' => self::$WebServicURL]);
-        $res = $client->post(
-            $action,
-            [
-                'debug' => self::$debug,
-                'headers' => [
-                    'Authorization' => static::$token
-                ],
-                'form_params' => $params
-            ]
-        );
-
-        $res = self::fixPersianString($res->getBody()->getContents());
-        $res = json_decode($res, true);
-        if (!empty($res)) {
-            return $res[array_key_first($res)];
-        }
-        return $res;
-    }
 
     /**
      * Create and send an HTTP GET request.
@@ -171,15 +143,76 @@ class Holoo
         return $res;
     }
 
+
     /**
-     * Create and send an HTTP PUT request.
-     * 
-     * @param mixed $action
-     * @param array $params
-     * 
+     * Create and send an HTTP POST From request .
+     *
+     * @param  mixed $action
+     * @param  mixed $params
      * @return mixed
      */
-    protected static function putRequest($action, array $params = [])
+    protected static function postRequestForm($action, array $params = [])
+    {
+        $client = new Client(['base_uri' => self::$WebServicURL]);
+        $res = $client->post(
+            $action,
+            [
+                'debug' => self::$debug,
+                'headers' => [
+                    'Authorization' => static::$token
+                ],
+                'form_params' => $params
+            ]
+        );
+
+        $res = self::fixPersianString($res->getBody()->getContents());
+        $res = json_decode($res, true);
+        if (!empty($res)) {
+            return $res[array_key_first($res)];
+        }
+        return $res;
+    }
+
+    /**
+     * Create and send an HTTP POST JSON request.
+     *
+     * @param  mixed $action
+     * @param  mixed $params
+     * @return mixed
+     */
+    protected static function postRequestJson($action, array $params = [])
+    {
+        // $params = json_encode($params, JSON_FORCE_OBJECT | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+        // $body = Psr7\Utils::streamFor()
+        $client = new Client(['base_uri' => self::$WebServicURL]);
+        $res = $client->post(
+            $action,
+            [
+                'debug' => self::$debug,
+                'headers' => [
+                    'Authorization' => static::$token,
+
+                ],
+                'json' => $params
+            ]
+        );
+
+        $res = self::fixPersianString($res->getBody()->getContents());
+        $res = json_decode($res, true);
+        if (!empty($res)) {
+            // return $res[array_key_first($res)];
+        }
+        return $res;
+    }
+
+    /**
+     * Create and send an HTTP PUT From request .
+     *
+     * @param  mixed $action
+     * @param  mixed $params
+     * @return mixed
+     */
+    protected static function putRequestForm($action, array $params = [])
     {
         $client = new Client(['base_uri' => self::$WebServicURL]);
         $res = $client->put(
@@ -189,16 +222,42 @@ class Holoo
                 'headers' => [
                     'Authorization' => static::$token
                 ],
-                'query' => $params
+                'form_params' => $params
             ]
         );
+
         $res = self::fixPersianString($res->getBody()->getContents());
         $res = json_decode($res, true);
-        if (!empty($res)) {
-            return $res[array_key_first($res)];
-        }
         return $res;
     }
+
+    /**
+     * Create and send an HTTP PUT JSON request.
+     *
+     * @param  mixed $action
+     * @param  mixed $params
+     * @return mixed
+     */
+    protected static function putRequestJson($action, array $params = [])
+    {
+        $client = new Client(['base_uri' => self::$WebServicURL]);
+        $res = $client->put(
+            $action,
+            [
+                'debug' => self::$debug,
+                'headers' => [
+                    'Authorization' => static::$token,
+
+                ],
+                'json' => $params
+            ]
+        );
+
+        $res = self::fixPersianString($res->getBody()->getContents());
+        $res = json_decode($res, true);
+        return $res;
+    }
+
 
     /**
      * fixPersianString
