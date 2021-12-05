@@ -50,5 +50,18 @@ $product= Product::GetProduct();
 $product= Product::GetProduct(['Code'=>64]);
 $product = Product::GetProduct(['MainGroupErpCode' => 'bBALfg==']); // bug
 $product= Product::GetProductCount();
+
+$product = Product::NewProduct([
+    'productinfo' => [
+        'sidegroupErpcode' => 'bBALNA1jDg0=',
+        'name' => 'saleh402'
+    ]
+]);
+$product = Product::EditProduct([
+    'productinfo' => [
+        'erpcode' => 'bBALNA1mcgF7UB4O',
+        'name' => 'محصول ادیت شده'
+    ]
+]);
 print_r($product);
 ```
