@@ -12,7 +12,7 @@
         "email": "saleh.souzanchi@gmail.com"
     }],
     "require": {
-        "guzzlehttp/guzzle": "7.4.0"
+        "guzzlehttp/guzzle": "7.4.1"
 
     }
 }
