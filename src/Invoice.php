@@ -2,26 +2,22 @@
 
 namespace HolooClient;
 
-
-
 /**
  * Customer
  */
 class Invoice extends Holoo
 {
-
-
     /**
      * GetInvoiceList
      * fetch all or one more invoides
-     * 
+     *
      * ### Example
      * ```
      * $invioces= Invoice::GetInvoiceList();
      * $invioces= Invoice::GetInvoiceList(['Code'=>123]);
      * $invioces= Invoice::GetInvoiceList(['type'=>4]);
      * ```
-     * 
+     *
      * @param  mixed $params
      * @return array
      */
@@ -30,7 +26,6 @@ class Invoice extends Holoo
         return self::getRequest('Invoice/Invoice', $params);
     }
 
-    
     /**
      * NewInvoice
      *
@@ -39,13 +34,29 @@ class Invoice extends Holoo
      */
     public static function NewInvoice($params = []): array
     {
-         return self::postRequestJson('Invoice/Invoice', $params);
+        return self::postRequestJson('Invoice/Invoice', $params);
     }
-
-    /*    public static function GetPreInvoiceInfo($params = []): array
+    
+    /**
+     * GetPreInvoiceList
+     * fetch all or one more invoides
+     *
+     * ### Example
+     * ```
+     * $invioces= Invoice::GetPreInvoiceList();
+     * $invioces= Invoice::GetPreInvoiceList(['Code'=>123]);
+     * ```
+     *
+     * 
+     * @param  mixed $params
+     * @return array
+     */
+    public static function GetPreInvoiceList($params = []): array
     {
-         return self::postRequestJson('Invoice/PreInvoiceInfo', $params);
-    } */
+        // type 5 = PreInvoice
+        $params = array_merge($params,['type' => 5]);
+        return self::getRequest('Invoice/Invoice', $params);
+    }
 
     /**
      * NewPreInvoice
@@ -78,7 +89,7 @@ class Invoice extends Holoo
      *    ]
      * ]);
      * ```
-     * 
+     *
      * @param  mixed $params
      * @return array
      */
