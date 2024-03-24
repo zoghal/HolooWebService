@@ -49,7 +49,7 @@ class Customer extends Holoo
      * ### Example
      * ```
      * $user = Customer::NewCustomer([
-     *    'custifno' => [
+     *    'custinfo' => [
      *        'name' => 'صالح سوزنچی',
      *        'ispurchaser' => true,
      *        'isseller' => true,
@@ -72,7 +72,7 @@ class Customer extends Holoo
      * ### Example
      * ```
      * $user = Customer::EditCustomer([
-     *    'custifno' => [
+     *    'custinfo' => [
      *        'erpcode=' => 'bBAPNA12dg0=',   
      *        'isblacklist' => true,
      *        'nationalid' => '38700011122',
